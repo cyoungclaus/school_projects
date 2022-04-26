@@ -5,29 +5,32 @@ import lyricsgenius as lg
 
 # Initialization
 # -------------------------
-CLIENT_ID = '9a0a84b0ed4443ed8e8e4014f4d3edbb'
-CLIENT_SECRET = '93bf0299df4442af92dfafc475e2c21a'
-CLIENT_NAME = 'dublecy'
+def __init__():
+    global CLIENT_ID, CLIENT_SECRET, CLIENT_NAME, LIKED_SONGS, PLAYLISTS, sp, api_key, genius
+    CLIENT_ID = '9a0a84b0ed4443ed8e8e4014f4d3edbb'
+    CLIENT_SECRET = '93bf0299df4442af92dfafc475e2c21a'
+    CLIENT_NAME = 'dublecy'
+    LIKED_SONGS = "551pythonFP\storage\liked_songs.txt"
+    PLAYLISTS = "551pythonFP\storage\playlists.txt"
 
-# =============
-# client_credentials_manager = SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
-# sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-# =================
+    # =============
+    # client_credentials_manager = SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
+    # sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+    # ================= 
 
-# This is temporarily only using my Spotify account
-# until I can have the user authenticate themselves
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://localhost:9000", scope="user-library-read playlist-read-private"))
-api_key = "I9nL4VjfIFb97CrIlDKgTgDHHURCfi3BrvD2700v4M4y8vIqkfyxdQuyMkV5nPVY"
-genius = lg.Genius(api_key, skip_non_songs=True, excluded_terms=["(Remix)", "(Live)"], remove_section_headers=True)
+    # This is temporarily only using my Spotify account
+    # until I can have the user authenticate themselves
+    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://localhost:9000", scope="user-library-read playlist-read-private"))
+    api_key = "I9nL4VjfIFb97CrIlDKgTgDHHURCfi3BrvD2700v4M4y8vIqkfyxdQuyMkV5nPVY"
+    genius = lg.Genius(api_key, skip_non_songs=True, excluded_terms=["(Remix)", "(Live)"], remove_section_headers=True)
+
+
 
 # -------------------------
 
 # First-time Build
 #   Gets user's information and writes them all 
 #   to likedsongs.txt and playlists.txt
-
-LIKED_SONGS = "C:\\Users\\StevensUser\\Desktop\\551pythonFP\\store\\liked_songs.txt"
-PLAYLISTS = "C:\\Users\\StevensUser\\Desktop\\551pythonFP\\store\\playlists.txt"
 
 def getLikedSongs():
     first = sp.current_user_saved_tracks(limit=1)

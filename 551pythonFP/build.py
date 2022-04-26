@@ -1,8 +1,9 @@
 import const as c
 import random
-from __init__ import LIKED_SONGS, PLAYLISTS
+from settings import CLIENT_ID, CLIENT_SECRET, CLIENT_NAME, LIKED_SONGS, PLAYLISTS
 
-# This file will hold the funtions for the buttons
+# This file will hold the functions for the buttons
+
 
 def lyrics(frame):
     f = open(LIKED_SONGS).read().splitlines()

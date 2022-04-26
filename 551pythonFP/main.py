@@ -1,4 +1,5 @@
-import const, build
+import const
+import build
 import tkinter as tk
 from const import window
 
@@ -12,11 +13,11 @@ frame.pack()
 button1 = tk.Button(
     master=frame,
     text="B1",
-    command=lambda:build.lyrics(frame),
+    command=lambda: build.lyrics(frame),
     bg="gray",
     fg="black",
 )
-button1.place(x=100,y=500)
+button1.place(x=100, y=500)
 
 # Second Function - Playlist Randomizer
 button2 = tk.Button(
@@ -25,7 +26,7 @@ button2 = tk.Button(
     bg="gray",
     fg="black",
 )
-button2.place(x=800,y=500)
+button2.place(x=800, y=500)
 
 """
 

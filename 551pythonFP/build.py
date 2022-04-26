@@ -1,6 +1,6 @@
 import const as c
 import random
-from settings import CLIENT_ID, CLIENT_SECRET, CLIENT_NAME, LIKED_SONGS, PLAYLISTS
+from settings import CLIENT_ID, CLIENT_SECRET, CLIENT_NAME, LIKED_SONGS, PLAYLISTS, genius
 
 # This file will hold the functions for the buttons
 
@@ -8,10 +8,12 @@ from settings import CLIENT_ID, CLIENT_SECRET, CLIENT_NAME, LIKED_SONGS, PLAYLIS
 def lyrics(frame):
     f = open(LIKED_SONGS).read().splitlines()
     choice = random.choice(f)
-    name = str(choice.split(';')[1]).strip()
+    title = str(choice.split(';')[1]).strip()
     artist = str(choice.split(';')[2]).strip()
     try:
-        print("Your song is: " + name + " by " + artist)
+        genius.search_song(title=title, artist=artist)
     except:
+        print("Error")
         lyrics()
-    c.getLyrics(frame, name, artist)
+    print("Your song is: " + title + " by " + artist)
+    c.getLyrics(frame, title, artist)

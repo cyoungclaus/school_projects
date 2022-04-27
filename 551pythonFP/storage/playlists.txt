@@ -5,7 +5,6 @@ spotify:playlist:5etwzuFdi8Vy7hzkiTLKNm;shmoovin
 spotify:playlist:3doc2TBNA0ffgexz2Esn9L;poolside
 spotify:playlist:0gGwGus8RO5VUXZBTw97FV;pre party
 spotify:playlist:1f9Xj3sCjRr9s8WhL2SdqV;drive at sunset
-spotify:playlist:1XatMLo85c3QR0kTbNlaMt;cornhole
 spotify:playlist:0cNTOOcICDowr7lptFv0qN;Allie Keeler
 spotify:playlist:41Njkon9tNVeZggX3ab81f;bored af
 spotify:playlist:39uNuYje83lokaPqaahJFs;rain

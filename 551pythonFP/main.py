@@ -1,32 +1,34 @@
 import const
-import build
 import tkinter as tk
 from const import root
 
 title = tk.Label(text="551 project")
 title.pack()
 
-frame = tk.Frame(master=root, width=1000, height=600)
+frame = tk.Frame(master=root, width=800, height=300)
 frame.pack()
+
+yButtons = 100
 
 # First Function - Lyrics Generator
 button1 = tk.Button(
     master=frame,
-    text="B1",
-    command=lambda: build.lyrics(frame),
+    text="Game:\nGet Random Song Lyrics",
+    command=lambda: const.getLyrics(),
     bg="gray",
     fg="black",
 )
-button1.place(x=100, y=500)
+button1.place(x=100, y=yButtons)
 
 # Second Function - Playlist Randomizer
 button2 = tk.Button(
     master=frame,
-    text="2: Playlist",
+    text="Game:\nSong/Playlist Guesser",
+    command=lambda: const.playlists(frame),
     bg="gray",
     fg="black",
 )
-button2.place(x=800, y=500)
+button2.place(x=300, y=yButtons)
 
 """
 

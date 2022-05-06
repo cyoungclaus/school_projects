@@ -22,6 +22,18 @@ f.close()
 # ================
 
 root = Tk()
+title = tk.Label(text="551 project")
+title.pack()
+
+frame = tk.Frame(master=root, width=800, height=300)
+frame.pack()
+
+def onClick(destroy, func):
+    destroy.pack_forget()
+    try:
+        func()
+    finally:
+        pass
 
 # Get lyrics for song by NAME and print them to screen
 def getLyrics():
@@ -62,9 +74,9 @@ def getLyrics():
     scrollbar.pack(side="right", fill="y")
 
     back = tk.Button(
-        master=canvas,
+        master=container,
         text="Back",
-        command=lambda: container.destroy(),
+        command=lambda: onClick(container, frame.pack()),
         bg="gray",
         fg="black",
     )
@@ -123,24 +135,17 @@ def getTracks(playlist):
 
     return ids
 
-def playlists(frame):
+def playlists():
     correctPlaylist = getRandPlaylist()
     song = random.choice(getTracks(correctPlaylist))
     playlistAnswer = playlistArray[0]
     f = open(PLAYLISTS, 'r')
-    idHolder = ''
-    index = 0
-    counter = 0
     random.shuffle(playlistArray)
 
     container = ttk.Frame(root)
     container.tkraise()
     canvas = tk.Canvas(container)
-    canvas.create_window((0,0), anchor="w")
-
-    titleHolder = sp.track(song)["name"]
-    title = Label(container, text="\nWhat playlist did we get \"" + titleHolder + "\" by " + sp.track(song)['artists'][0]['name'] + " from?")
-    title.pack()
+    canvas.create_window((0,0), anchor="nw")
 
     canvas.pack(side="left", fill="both", expand=True)
     
@@ -148,48 +153,111 @@ def playlists(frame):
     gridFrame = ttk.Frame(gridCanvas)
 
     gridCanvas.create_window((0,0), window=gridFrame, anchor='nw')
-    
-    selection = 0
 
+    titleHolder = sp.track(song)["name"]
+    label = Label(container, text="\nWhat playlist did we get \"" + titleHolder + "\" by " + sp.track(song)['artists'][0]['name'] + " from?")
+    label.pack()
     for x in range(0, len(playlistArray)):
-        button = tk.Button(
-            master=gridFrame,
-            text= str(x+1) + ") " + playlistArray[x],
+        print(str(x+1) + ") " + playlistArray[x])
+
+    label = Label(container, text="Correct: " + playlistAnswer)
+    label.pack()
+
+    def success(index):
+        print("success worked")
+        container.pack_forget()
+
+        temp = ttk.Frame(root)
+        temp.tkraise()
+        canvas = tk.Canvas(temp)
+        canvas.create_window((0,0), anchor="nw")
+        canvas.pack(side="left", fill="both", expand=True)
+
+        if index == 1:
+            label = Label(temp, text="Correct!")
+            label.pack()
+        elif index == 2:
+            label = Label(temp, text="Correct, but the song is also from " + playlistAnswer)
+            label.pack()
+        else:
+            label = Label(temp, text="Wrong! Correct answer was " + playlistAnswer)
+            label.pack()
+
+        temp.pack()
+        canvas.pack(side="left", fill="both", expand=True)
+
+        back = tk.Button(
+            master=temp,
+            text="Back",
+            command=lambda: onClick(temp, frame.pack()),
             bg="gray",
             fg="black",
         )
-        button.grid(row=0, column=x)
-        #print(str(x+1) + ") " + playlistArray[x])
-    
-    """
-    print('')
-    answer = input("--> ") 
-    while True:
-        if (answer == playlistAnswer) or (int(answer) == playlistArray.index(playlistAnswer)+1):
-            print("--> Correct")
-            counter += 1
-            return True
-        elif (answer not in playlistArray) and (int(answer) not in range(1,5)):
-            answer = input("Invalid input --> ")
+        back.pack()
+
+    def check(answer):
+        #idHolder = ''
+        if answer == playlistAnswer:
+            success(1)
         else:
-            for item in playlistArray:          #this part is extremely slow - needs efficiency
+            # This part is supposed to make sure the song isn't in the
+            # other three random playlists before saying the user is wrong
+            # but it takes too long to iterate through each playlist and check
+            """ 
+            for item in playlistArray: 
                 for line in f:
-                    index+=1
                     if item in line.split(';')[1]:
                         idHolder = line.split(':')[2].split(';')[0]
                 for item in getTracks(idHolder):
                     if sp.track(song)['id'] == item:
-                        print("--> Correct, but song was pulled from " + playlistAnswer)
-                        counter += 1
-                        return True
-            print("--> Incorrect. Answer was " + playlistAnswer)
-            print("You got through " + str(counter) + " songs.")
-            return False
-    """
+                        print("success 2")
+                        success(2)
+            """
+            success(0)
+
+#=================================================
+# This needs to be condensed to a loop; can't figure it out atm
+    button = tk.Button(
+        master=gridFrame,
+        text= "1) + "  + playlistArray[0],
+        command=lambda: check(playlistArray[0]),
+        bg="gray",
+        fg="black",
+    )
+    button.grid(row=0, column=0)
+
+    button = tk.Button(
+        master=gridFrame,
+        text= "2) + "  + playlistArray[1],
+        command=lambda: check(playlistArray[1]),
+        bg="gray",
+        fg="black",
+    )
+    button.grid(row=0, column=1)
+
+    button = tk.Button(
+        master=gridFrame,
+        text= "3) + "  + playlistArray[2],
+        command=lambda: check(playlistArray[2]),
+        bg="gray",
+        fg="black",
+    )
+    button.grid(row=0, column=2)
+
+    button = tk.Button(
+        master=gridFrame,
+        text= "4) + "  + playlistArray[3],
+        command=lambda: check(playlistArray[3]),
+        bg="gray",
+        fg="black",
+    )
+    button.grid(row=0, column=3)
+#======================================================
+
     back = tk.Button(
         master=gridFrame,
         text="Back",
-        command=lambda: container.destroy(),
+        command=lambda: onClick(container, frame.pack()),
         bg="gray",
         fg="black",
     )
@@ -197,6 +265,3 @@ def playlists(frame):
 
     gridCanvas.pack()
     container.pack()
-
-    
-    

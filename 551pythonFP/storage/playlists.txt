@@ -1,7 +1,14 @@
 spotify:playlist:6cxtCa65LFx9gNAA3qV9vW;etsy
-spotify:playlist:6No0rNRE7RhicHuGkjhb0N;fuck the pledges
-spotify:playlist:3F5QW461GooQmHIKSnvhJL;swammp vibe
+spotify:playlist:6No0rNRE7RhicHuGkjhb0N;swamp
+spotify:playlist:0z8XiXSCaH2sOls6dR2pXl;swammp
+spotify:playlist:0i38GJpdSaVDQ4FpuHMB7g;swammmmp
+spotify:playlist:6CSNHjdSe27aYra9JEmCYQ;swammmmmmp
+spotify:playlist:3F5QW461GooQmHIKSnvhJL;swammmmmmmmp
+spotify:playlist:3dzINMExKi8viXeYjg3NPF;swammmmmmmmmmp
+spotify:playlist:6KqHlRrVmE942QgOvHctmO;background music
 spotify:playlist:5etwzuFdi8Vy7hzkiTLKNm;shmoovin
+spotify:playlist:6scJRiHeKYF1Ka6SRUYXy1;beach vibe
+spotify:playlist:5nT3HR0I2dyhHocW7jhyhR;easy oldies
 spotify:playlist:3doc2TBNA0ffgexz2Esn9L;poolside
 spotify:playlist:0gGwGus8RO5VUXZBTw97FV;pre party
 spotify:playlist:1f9Xj3sCjRr9s8WhL2SdqV;drive at sunset
@@ -12,6 +19,7 @@ spotify:playlist:6ulO2WKKC3yJqgDFKydTRC;morning brew
 spotify:playlist:4pwpnysF9Pv5l6GClDf2Mw;late night feels
 spotify:playlist:4MgGEdyMCnZF4VMAyq9eDj;rattle my eardrums
 spotify:playlist:5ekDhKMzYkEvt3jk7Um0jw;night fever
+spotify:playlist:4mTVEZTpcsKdNj7vklBx8Q;My playlist #84
 spotify:playlist:1HhvBgptPdvoSr14YZJCVV;bag lol
 spotify:playlist:1DKWa0kIrE06HeWHoApA4N;That new shit
 spotify:playlist:3mrcaobU6nVTzVzrfImYWF;doodoo doodoodoodoo
@@ -23,7 +31,6 @@ spotify:playlist:22eXjZ5i9c0hIamZPeF7pb;Rocked
 spotify:playlist:37i9dQZF1DX2Nc3B70tvx0;Ultimate Indie
 spotify:playlist:37i9dQZF1EQqkOPvHGajmW;Indie Mix
 spotify:playlist:2kCDJlWVyZEUGpgmrIgASR;words
-spotify:playlist:6CSNHjdSe27aYra9JEmCYQ;surround sound
 spotify:playlist:7dRFRTmuzGZnKd52MR9HmQ;im tryna sleep
 spotify:playlist:04qROqy93oU0wFtwmbsqSv;got models bottles and the piff is lit
 spotify:playlist:1FtQk2pmCA5uHTBFkk8EVI;rap

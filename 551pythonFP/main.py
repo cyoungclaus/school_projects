@@ -1,20 +1,20 @@
 import const
 import tkinter as tk
-from const import root
-
-title = tk.Label(text="551 project")
-title.pack()
-
-frame = tk.Frame(master=root, width=800, height=300)
-frame.pack()
+from tkinter import *
+from const import root, frame, onClick
+from settings import getLikedSongs, getPlaylists
 
 yButtons = 100
+
+def build():
+    getLikedSongs()
+    getPlaylists()
 
 # First Function - Lyrics Generator
 button1 = tk.Button(
     master=frame,
     text="Game:\nGet Random Song Lyrics",
-    command=lambda: const.getLyrics(),
+    command=lambda: onClick(frame, const.getLyrics()),
     bg="gray",
     fg="black",
 )
@@ -24,14 +24,13 @@ button1.place(x=100, y=yButtons)
 button2 = tk.Button(
     master=frame,
     text="Game:\nSong/Playlist Guesser",
-    command=lambda: const.playlists(frame),
+    command=lambda: onClick(frame, const.playlists()),
     bg="gray",
     fg="black",
 )
 button2.place(x=300, y=yButtons)
 
 """
-
 # Third Function - Song Vizualizer
 button3 = tk.Button(
     master=frame,
@@ -39,15 +38,17 @@ button3 = tk.Button(
     bg="gray",
     fg="black",
 )
-button3.place(x=600,y=500)
+button3.place(x=500,y=500)
+"""
 
 button4 = tk.Button(
     master=frame,
-    text="4: Rebuild",
+    text="Rebuild Database",
+    command=lambda: build(),
     bg="gray",
     fg="black",
 )
-button3.place(x=800,y=500)
-"""
+button4.place(x=700,y=yButtons)
+
 
 root.mainloop()

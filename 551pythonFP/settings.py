@@ -61,6 +61,7 @@ def getPlaylists():
     playlists = sp.user_playlists(CLIENT_NAME)
     f = open(PLAYLISTS, 'w')
 
+    print("Updating Playlists...")
     while playlists:
         for i, playlist in enumerate(playlists['items']):
             line = str(playlist['uri'] + ";" + str(playlist['name'] + "\n"))

@@ -30,16 +30,15 @@ button2 = tk.Button(
 )
 button2.place(x=300, y=yButtons)
 
-"""
 # Third Function - Song Vizualizer
 button3 = tk.Button(
     master=frame,
     text="3: Song",
+    command=lambda: onClick(frame, const.analysis()),
     bg="gray",
     fg="black",
 )
 button3.place(x=500,y=500)
-"""
 
 button4 = tk.Button(
     master=frame,

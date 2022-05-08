@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 import random
-from termcolor import colored
+#from termcolor import colored
 
 playlistArray = ['', '', '', '']
 idArr = []
@@ -339,3 +339,7 @@ def playlists():
 
     gridCanvas.pack()
     container.pack()
+
+# Analyze a song and give user variables pertaining to its elements
+def analysis():
+    print(sp.audio_features('5hc71nKsUgtwQ3z52KEKQk'))

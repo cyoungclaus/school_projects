@@ -1,8 +1,9 @@
-from settings import sp, genius, CLIENT_ID, CLIENT_SECRET, CLIENT_NAME, LIKED_SONGS, PLAYLISTS, getLikedSongs, getPlaylists
+from settings import sp, genius, CLIENT_ID, CLIENT_NAME, LIKED_SONGS, PLAYLISTS, getLikedSongs, getPlaylists
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 import random
+from termcolor import colored
 
 playlistArray = ['', '', '', '']
 idArr = []
@@ -25,19 +26,34 @@ root = Tk()
 title = tk.Label(text="551 project")
 title.pack()
 
-frame = tk.Frame(master=root, width=800, height=300)
+frame = tk.Frame(master=root, width=1200, height=800)
 frame.pack()
 
 def onClick(destroy, func):
     destroy.pack_forget()
     try:
         func()
-    finally:
+    except:         # Program does not like calling func as a funtion
         pass
+
+def removeWord(lyrics):
+    words = lyrics.split()
+    word = ""
+    while len(word) < 4:        # rudimentary way to make sure word is a more important one
+        index = random.randint(4, len(words))
+        word = words[index]
+        for w in word:
+            if w in '''!@#$%^&*(),./\'\";:=+-_`~''':
+                word = word.replace(w, "")
+        print("Word: " + word)
+    lyrics = lyrics.replace(words[index], "*? ? ? ? ?*", 1)
+
+    return lyrics, word
 
 # Get lyrics for song by NAME and print them to screen
 def getLyrics():
-    title = artist = ""
+    title = artist = removal = lyrics = word = ""
+
     while True:
         f = open(LIKED_SONGS).read().splitlines()
         choice = random.choice(f)
@@ -50,8 +66,8 @@ def getLyrics():
             print("Error with getting song info. Retrying...")
 
     container = ttk.Frame(root)
-    container.tkraise()
-    canvas = tk.Canvas(container)
+    #container.tkraise()
+    canvas = tk.Canvas(container, width=1200, height=800)
     scrollbar = ttk.Scrollbar(container, orient=VERTICAL, command=canvas.yview)
     scrollable_frame = ttk.Frame(canvas)
     scrollable_frame.bind(
@@ -65,9 +81,67 @@ def getLyrics():
     canvas.configure(yscrollcommand=scrollbar.set)
 
     label = Label(scrollable_frame, text="Your song is: " + title + " by " + artist)
-    label.pack()
 
-    ttk.Label(scrollable_frame, text=song.lyrics).pack()
+    removal = removeWord(song.lyrics)
+    lyrics = removal[0]
+    word = removal[1]
+
+    lyricsBox = ttk.Label(scrollable_frame, text=lyrics)
+    entryBox = tk.Entry(container)
+
+    def reloop():
+        removal = removeWord(song.lyrics)
+        lyrics = removal[0]
+        word = removal[1]
+        lyricsBox = ttk.Label(scrollable_frame, text=lyrics)
+        lyricsBox.pack()
+        entryBox.delete(0, "end")
+
+    def checkAnswer():
+        x = entryBox.get()
+        temp = ""
+        #print("Answer: " + answer)
+        print("Guess: " + x)
+        if x == word:
+            label = Label(container, text="Correct!")
+            label.pack()
+            reloop()
+        else:
+            container.pack_forget()
+            temp = ttk.Frame(root)
+            temp.tkraise()
+            canvas = tk.Canvas(temp)
+            canvas.create_window((0,0), anchor="nw")
+            canvas.pack(side="left", fill="both", expand=True)
+            label = Label(temp, text="Incorrect!")
+            label.pack()
+
+            temp.pack()
+            canvas.pack(side="left", fill="both", expand=True)
+
+            back = tk.Button(
+                master=temp,
+                text="Back",
+                command=lambda: onClick(temp, frame.pack()),
+                bg="gray",
+                fg="black",
+            )
+            back.pack()
+
+
+    label.pack()
+    lyricsBox.pack()
+    entryBox.pack()
+
+
+    submit = tk.Button(
+        master=container,
+        text="Enter Guess",
+        command=lambda:checkAnswer(),
+        bg="gray",
+        fg="black"
+    )
+    submit.pack()
 
     container.pack()
     canvas.pack(side="left", fill="both", expand=True)
@@ -160,7 +234,7 @@ def playlists():
     for x in range(0, len(playlistArray)):
         print(str(x+1) + ") " + playlistArray[x])
 
-    label = Label(container, text="Correct: " + playlistAnswer)
+    label = Label(container, text="Correct: \"" + playlistAnswer + "\"")
     label.pack()
 
     def success(index):
@@ -177,10 +251,10 @@ def playlists():
             label = Label(temp, text="Correct!")
             label.pack()
         elif index == 2:
-            label = Label(temp, text="Correct, but the song is also from " + playlistAnswer)
+            label = Label(temp, text="Correct, but the song is also from \"" + playlistAnswer + "\"")
             label.pack()
         else:
-            label = Label(temp, text="Wrong! Correct answer was " + playlistAnswer)
+            label = Label(temp, text="Wrong! Correct answer was \"" + playlistAnswer + "\"")
             label.pack()
 
         temp.pack()

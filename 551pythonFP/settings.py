@@ -6,7 +6,7 @@ import lyricsgenius as lg
 # Initialization
 # -------------------------
 CLIENT_ID = '9a0a84b0ed4443ed8e8e4014f4d3edbb'
-CLIENT_SECRET = '93bf0299df4442af92dfafc475e2c21a'
+CLIENT_SECRET = "93bf0299df4442af92dfafc475e2c21a"
 CLIENT_NAME = 'dublecy'
 LIKED_SONGS = "551pythonFP\storage\liked_songs.txt"
 PLAYLISTS = "551pythonFP\storage\playlists.txt"
@@ -18,7 +18,7 @@ PLAYLISTS = "551pythonFP\storage\playlists.txt"
 
 # This is temporarily only using my Spotify account
 # until I can have the user authenticate themselves
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://localhost:9000", scope="user-library-read playlist-read-private"))
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, redirect_uri="http://localhost:9000", scope="user-library-read"))
 api_key = "I9nL4VjfIFb97CrIlDKgTgDHHURCfi3BrvD2700v4M4y8vIqkfyxdQuyMkV5nPVY"
 genius = lg.Genius(api_key, skip_non_songs=True, excluded_terms=["(Remix)", "(Live)"], remove_section_headers=True)
 

@@ -4,6 +4,14 @@ from tkinter import *
 from const import root, frame, onClick
 from settings import getLikedSongs, getPlaylists
 
+#############################################################
+#   Spotify Analyzer / Game Project
+#   AA!-551 Final Project
+#   15 May 2022
+#
+#   Sidenote: I have learned that tkinter is terrible
+#############################################################
+
 yButtons = 100
 
 def build():
@@ -38,7 +46,7 @@ button3 = tk.Button(
     bg="gray",
     fg="black",
 )
-button3.place(x=500,y=500)
+button3.place(x=500,y=yButtons)
 
 button4 = tk.Button(
     master=frame,

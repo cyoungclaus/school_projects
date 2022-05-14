@@ -3,13 +3,14 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 import random
-#from termcolor import colored
 
-playlistArray = ['', '', '', '']
+removal = lyrics = xword = counter = ""     # Option 1 | getLyrics function
+playlistArray = ['', '', '', '']            # Option 2 | getRandPlaylist function
 idArr = []
 nameArr = []
+songitems = {}                              # Option 3 | Audio analysis
 
-# Build
+# First time load build
 # ================
 f = open(LIKED_SONGS, 'r')
 if f.read().split('\n', 1)[0] == '':
@@ -36,10 +37,11 @@ def onClick(destroy, func):
     except:         # Program does not like calling func as a funtion
         pass
 
+# picks a random word from lyrics, strips it of punctuation, returns word and edited lyrics
 def removeWord(lyrics):
     words = lyrics.split()
     word = ""
-    while len(word) < 4:        # rudimentary way to make sure word is a more important one
+    while len(word) < 4:        # rudimentary way to make sure "word" variable chooses a more important lyric
         index = random.randint(4, len(words))
         word = words[index]
         for w in word:
@@ -52,8 +54,10 @@ def removeWord(lyrics):
 
 # Get lyrics for song by NAME and print them to screen
 def getLyrics():
-    title = artist = removal = lyrics = word = ""
-
+    title = artist = ""
+    global removal, lyrics, xword, counter
+    counter = 0
+    
     while True:
         f = open(LIKED_SONGS).read().splitlines()
         choice = random.choice(f)
@@ -81,31 +85,37 @@ def getLyrics():
     canvas.configure(yscrollcommand=scrollbar.set)
 
     label = Label(scrollable_frame, text="Your song is: " + title + " by " + artist)
-
+    
     removal = removeWord(song.lyrics)
     lyrics = removal[0]
-    word = removal[1]
-
+    xword = str(removal[1])
     lyricsBox = ttk.Label(scrollable_frame, text=lyrics)
     entryBox = tk.Entry(container)
 
-    def reloop():
-        removal = removeWord(song.lyrics)
-        lyrics = removal[0]
-        word = removal[1]
-        lyricsBox = ttk.Label(scrollable_frame, text=lyrics)
-        lyricsBox.pack()
-        entryBox.delete(0, "end")
-
+    # Checks if human answer matches word, if not kills game and sends user back to home screen
     def checkAnswer():
+        global removal, lyrics, xword, counter
+        removal = removal
+        lyrics = lyrics
+        xword = xword
+        counter = counter
         x = entryBox.get()
         temp = ""
-        #print("Answer: " + answer)
+        
         print("Guess: " + x)
-        if x == word:
+        if x.lower() == xword.lower():
             label = Label(container, text="Correct!")
             label.pack()
-            reloop()
+            
+            removal = removeWord(song.lyrics)
+            lyrics = removal[0]
+            xword = removal[1]
+            lyricsBox.config(text=lyrics)
+            lyricsBox.pack()
+            entryBox.delete(0, "end")
+
+            counter += 1
+            
         else:
             container.pack_forget()
             temp = ttk.Frame(root)
@@ -113,7 +123,7 @@ def getLyrics():
             canvas = tk.Canvas(temp)
             canvas.create_window((0,0), anchor="nw")
             canvas.pack(side="left", fill="both", expand=True)
-            label = Label(temp, text="Incorrect!")
+            label = Label(temp, text="Incorrect! Missing word was \'" + xword + "\nYou guessed " + str(counter) + " words correctly!")
             label.pack()
 
             temp.pack()
@@ -132,7 +142,6 @@ def getLyrics():
     label.pack()
     lyricsBox.pack()
     entryBox.pack()
-
 
     submit = tk.Button(
         master=container,
@@ -209,6 +218,7 @@ def getTracks(playlist):
 
     return ids
 
+# Produces playlist game
 def playlists():
     correctPlaylist = getRandPlaylist()
     song = random.choice(getTracks(correctPlaylist))
@@ -238,7 +248,6 @@ def playlists():
     label.pack()
 
     def success(index):
-        print("success worked")
         container.pack_forget()
 
         temp = ttk.Frame(root)
@@ -342,4 +351,66 @@ def playlists():
 
 # Analyze a song and give user variables pertaining to its elements
 def analysis():
-    print(sp.audio_features('5hc71nKsUgtwQ3z52KEKQk'))
+    global songitems
+    songitems = songitems
+
+    container = ttk.Frame(root)
+    container.tkraise()
+    canvas = tk.Canvas(container, width=1200, height=800)
+    canvas.create_window((0,0), anchor="nw")
+    canvas.pack(side="left", fill="both", expand=True)
+
+    label = tk.Label(canvas, text="What song would you like to analyze?")
+    label.pack()
+
+    entryBox = tk.Entry(container)
+    entryBox.pack()
+
+    submit = tk.Button(
+        master=container,
+        text="Submit",
+        command=lambda:getinfo(),
+        bg="gray",
+        fg="black"
+    )
+    submit.pack()
+
+    def getinfo():
+        query = entryBox.get().strip()
+        try:
+            song = sp.search('track:' + query, type='track')
+        except:
+            frame.pack()
+            label = tk.Label(canvas, text="Song not found")
+
+        songid = song['tracks']['items'][0]['id']
+        features_info = sp.audio_features(songid)
+        analysis = {
+            'Acoustics: ':{features_info[0]['acousticness']*100:"% | Tests how acoustic-bred the track is."},
+            'Danciness: ':{features_info[0]['danceability']*100: "% | How much can you dance to this song?"},
+            'Energy: ':{features_info[0]['energy']*100: "% | How fast/loud/intense is this track?"},
+            'Instrumentals: ':{features_info[0]['instrumentalness']*100:"% | Predicts how instrument-dominated the song is."},
+            'Liveliness: ':{features_info[0]['liveness']*100:"% | A value above 80% means the song was probably performed live."},
+            'Loudness: ':{features_info[0]['loudness']: " dB | How loud is the song?"},
+            'Speechiness: ':{features_info[0]['speechiness']*100:"% | A measure of how many spoken words are in the song. Opposite of instrumentals."},
+            'Tempo: ':{features_info[0]['tempo']: " BPM | Estimated tempo of the track."},
+            'Time Signature: ':{features_info[0]['time_signature']: "/4 | Time signature of song."}
+            }
+        for x in analysis:
+            num = script = ""
+            newdict = analysis[x]
+            for i in newdict:
+                num = str(i)
+                script = str(newdict[i])
+            label = tk.Label(canvas, text=x + num + script)
+            label.pack()
+
+    back = tk.Button(
+            master=container,
+            text="Back",
+            command=lambda: onClick(container, frame.pack()),
+            bg="gray",
+            fg="black",
+        )
+    back.pack()
+    container.pack()

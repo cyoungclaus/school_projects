@@ -1,4 +1,4 @@
-spotify:playlist:6cxtCa65LFx9gNAA3qV9vW;etsy
+spotify:playlist:6cxtCa65LFx9gNAA3qV9vW;etsy covers
 spotify:playlist:6No0rNRE7RhicHuGkjhb0N;swamp
 spotify:playlist:0z8XiXSCaH2sOls6dR2pXl;swammp
 spotify:playlist:0i38GJpdSaVDQ4FpuHMB7g;swammmmp
@@ -10,7 +10,7 @@ spotify:playlist:5etwzuFdi8Vy7hzkiTLKNm;shmoovin
 spotify:playlist:6scJRiHeKYF1Ka6SRUYXy1;beach vibe
 spotify:playlist:5nT3HR0I2dyhHocW7jhyhR;easy oldies
 spotify:playlist:3doc2TBNA0ffgexz2Esn9L;poolside
-spotify:playlist:0gGwGus8RO5VUXZBTw97FV;pre party
+spotify:playlist:0gGwGus8RO5VUXZBTw97FV;pop party
 spotify:playlist:1f9Xj3sCjRr9s8WhL2SdqV;drive at sunset
 spotify:playlist:0cNTOOcICDowr7lptFv0qN;Allie Keeler
 spotify:playlist:41Njkon9tNVeZggX3ab81f;bored af

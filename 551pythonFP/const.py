@@ -61,8 +61,8 @@ def getLyrics():
     while True:
         f = open(LIKED_SONGS).read().splitlines()
         choice = random.choice(f)
-        title = str(choice.split(';')[1]).strip()
-        artist = str(choice.split(';')[2]).strip()
+        title = "Despacito" #str(choice.split(';')[1]).strip()
+        artist = "Luis Fonsi" #str(choice.split(';')[2]).strip()
         try:
             song = genius.search_song(title=title, artist=artist)
             break
@@ -121,9 +121,9 @@ def getLyrics():
             temp = ttk.Frame(root)
             temp.tkraise()
             canvas = tk.Canvas(temp)
-            canvas.create_window((0,0), anchor="nw")
+            canvas.create_window((0,0), anchor="w")
             canvas.pack(side="left", fill="both", expand=True)
-            label = Label(temp, text="Incorrect! Missing word was \'" + xword + "\nYou guessed " + str(counter) + " words correctly!")
+            label = Label(temp, text="Incorrect! Missing word was \'" + xword + "\'\nYou guessed " + str(counter) + " words correctly!")
             label.pack()
 
             temp.pack()
@@ -244,8 +244,10 @@ def playlists():
     for x in range(0, len(playlistArray)):
         print(str(x+1) + ") " + playlistArray[x])
 
+    ''' Uncomment this to test correct answer
     label = Label(container, text="Correct: \"" + playlistAnswer + "\"")
     label.pack()
+    '''
 
     def success(index):
         container.pack_forget()
@@ -301,7 +303,7 @@ def playlists():
 #=================================================
 # This needs to be condensed to a loop; can't figure it out atm
     button = tk.Button(
-        master=gridFrame,
+        master=gridCanvas,
         text= "1) + "  + playlistArray[0],
         command=lambda: check(playlistArray[0]),
         bg="gray",
@@ -310,7 +312,7 @@ def playlists():
     button.grid(row=0, column=0)
 
     button = tk.Button(
-        master=gridFrame,
+        master=gridCanvas,
         text= "2) + "  + playlistArray[1],
         command=lambda: check(playlistArray[1]),
         bg="gray",
@@ -319,7 +321,7 @@ def playlists():
     button.grid(row=0, column=1)
 
     button = tk.Button(
-        master=gridFrame,
+        master=gridCanvas,
         text= "3) + "  + playlistArray[2],
         command=lambda: check(playlistArray[2]),
         bg="gray",
@@ -328,7 +330,7 @@ def playlists():
     button.grid(row=0, column=2)
 
     button = tk.Button(
-        master=gridFrame,
+        master=gridCanvas,
         text= "4) + "  + playlistArray[3],
         command=lambda: check(playlistArray[3]),
         bg="gray",
@@ -360,8 +362,8 @@ def analysis():
     canvas.create_window((0,0), anchor="nw")
     canvas.pack(side="left", fill="both", expand=True)
 
-    label = tk.Label(canvas, text="What song would you like to analyze?")
-    label.pack()
+    canvaslabel = tk.Label(canvas, text="What song would you like to analyze?")
+    canvaslabel.pack()
 
     entryBox = tk.Entry(container)
     entryBox.pack()
@@ -376,6 +378,7 @@ def analysis():
     submit.pack()
 
     def getinfo():
+        canvaslabel.destroy()
         query = entryBox.get().strip()
         try:
             song = sp.search('track:' + query, type='track')
@@ -385,6 +388,7 @@ def analysis():
 
         songid = song['tracks']['items'][0]['id']
         features_info = sp.audio_features(songid)
+        print(features_info)
         analysis = {
             'Acoustics: ':{features_info[0]['acousticness']*100:"% | Tests how acoustic-bred the track is."},
             'Danciness: ':{features_info[0]['danceability']*100: "% | How much can you dance to this song?"},
@@ -396,6 +400,9 @@ def analysis():
             'Tempo: ':{features_info[0]['tempo']: " BPM | Estimated tempo of the track."},
             'Time Signature: ':{features_info[0]['time_signature']: "/4 | Time signature of song."}
             }
+        
+        label = tk.Label(canvas, text="Showing results for " + sp.track(songid)['name'] + " by " + sp.track(songid)['artists'][0]['name'])
+        label.pack()
         for x in analysis:
             num = script = ""
             newdict = analysis[x]
@@ -404,6 +411,7 @@ def analysis():
                 script = str(newdict[i])
             label = tk.Label(canvas, text=x + num + script)
             label.pack()
+        
 
     back = tk.Button(
             master=container,

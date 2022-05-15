@@ -1,3 +1,20 @@
+6Xve7pWqzW6CQV8mlXzpBe;Strawberry Sunscreen;Lostboycrow
+7bvdDy3BzhU4vWa43ZrMSs;Something Different;The Chainsmokers
+1DwpGCzzpIRuIJ1Xuk9gar;Table For One;Roderick Porter
+4Qisq8t5SucVUYGK2yKdCi;Pardon Me;Jackboy
+401160izncPtca3CmX3dvM;Purple Hearts;Kendrick Lamar
+6gI9b2VsoWhjhIuIeToDVs;Die Hard;Kendrick Lamar
+4wtxSmTTeg6CiuhwIVKv0b;Holiday;Vampire Weekend
+2aZ2Co4NeQRsqWcU930zHT;Shot At The Night;The Killers
+0IPKskRI33eRXjUhNUr9b5;Loved You A Little (with Taking Back Sunday and Charlotte Sands);The Maine
+3nOjVAn9ohlCATDl1040v6;Girls Do What They Want;The Maine
+2P3SLxeQHPqh8qKB6gtJY2;Poetic Justice;Kendrick Lamar
+7rSnKi58HPIVC0FVyh04Q1;Shake The Room (feat. Quavo);Pop Smoke
+1j6kDJttn6wbVyMaM42Nxm;Lord Pretty Flacko Jodye 2 (LPFJ2);A$AP Rocky
+792HwhrdO3ErRKL5yRe4Ge;Invincible;Pop Smoke
+2r6OAV3WsYtXuXjvJ1lIDi;Hello (feat. A Boogie Wit da Hoodie);Pop Smoke
+7FIWs0pqAYbP91WWM0vlTQ;Godzilla (feat. Juice WRLD);Eminem
+2dJ4rGtsOHOgvTQawsCRtg;Pray 4 Love (feat. The Weeknd);Travis Scott
 5hNsSrWcClSp0tg4Jdd4UY;I Got A Shot;Jack Harlow
 0LnS7aOdOdI1dNKZqdOLz4;Dua Lipa;Jack Harlow
 4CuZSJLlmUrEfcXUm6pQk9;Young Harleezy;Jack Harlow
@@ -1280,8 +1297,8 @@
 2VxeLyX666F8uXCJ0dZF8B;Shallow;Lady Gaga
 5hA2ZHjvt1tgp55OzaqYKL;Perfect - Stripped;One Direction
 0ikmhbH2wPx0iFayhraSWp;Lay It on Me - Acoustic;Vance Joy
-3vskTJVxujq0QaUUxh9Erj;All Night - Acoustic;The Vamps
 3ewK5ZfOAEaIUEc7utEot3;Let Me Take You There;Plain White T's
+3vskTJVxujq0QaUUxh9Erj;All Night - Acoustic;The Vamps
 7Il2yWQmsqKgSkLQvHTPUI;Tequila;Dan + Shay
 1EzrEOXmMH3G43AXT1y7pA;I'm Yours;Jason Mraz
 3n622hniaMFIJ6Dbf6B1WS;Growing Old on Bleecker Street;AJR
@@ -1447,8 +1464,8 @@
 4ZhPLoMzZwewHLLjV1J15c;99 Luftballons;Nena
 4sjiIpEv617LDXaidKioOI;223's (feat. 9lokknine);YNW Melly
 1IAzD1muglOxOcPbUHs70R;Whatever You Like;T.I.
-1PpuABE4jUvBQaP7rGOaoi;Say Hey [I Love You];Michael Franti & Spearhead Feat. Cherine Anderson
 1gv4xPanImH17bKZ9rOveR;Raise Your Glass;P!nk
+1PpuABE4jUvBQaP7rGOaoi;Say Hey [I Love You];Michael Franti & Spearhead Feat. Cherine Anderson
 0WfKDYeUAoLA3vdvLKKWMW;Poker Face;Lady Gaga
 4esOae7i4rqTbAu9o5Pxco;Girl on Fire;Alicia Keys
 64ybTt8CKxPdeXBNnu08Op;Believer;American Authors
@@ -1480,8 +1497,8 @@
 45hOioMDJktr86iKDHC8gr;Girlfriend;Avril Lavigne
 5WTxbyWTpoqhdxEN2szOnl;Everybody (Backstreet's Back) - Extended Version;Backstreet Boys
 6dfXwa0dI1sBm4CIePuOYM;Levels;Avicii
-3hb2ScEVkGchcAQqrPLP0R;Photograph;Nickelback
 1PCvKFPWnTXAe2oaReVUcr;We Are One (Ole Ola) [The Official 2014 FIFA World Cup Song] (feat. Jennifer Lopez & Claudia Leitte);Pitbull
+3hb2ScEVkGchcAQqrPLP0R;Photograph;Nickelback
 1JDIArrcepzWDTAWXdGYmP;I Want You To Know;Zedd
 70wYA8oYHoMzhRRkARoMhU;When You Were Young;The Killers
 65mxB9IWpmVo4qUjdGSxRB;Girls & Boys;Good Charlotte

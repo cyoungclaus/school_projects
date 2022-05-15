@@ -23,7 +23,6 @@ api_key = "I9nL4VjfIFb97CrIlDKgTgDHHURCfi3BrvD2700v4M4y8vIqkfyxdQuyMkV5nPVY"
 genius = lg.Genius(api_key, skip_non_songs=True, excluded_terms=["(Remix)", "(Live)"], remove_section_headers=True)
 
 # -------------------------
-
 # First-time Build
 #   Gets user's information and writes them all 
 #   to likedsongs.txt and playlists.txt

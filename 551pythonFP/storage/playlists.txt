@@ -1,4 +1,5 @@
 spotify:playlist:6cxtCa65LFx9gNAA3qV9vW;etsy covers
+spotify:playlist:0kimu4neFVRCYLLbFTwm5J;swap
 spotify:playlist:6No0rNRE7RhicHuGkjhb0N;swamp
 spotify:playlist:0z8XiXSCaH2sOls6dR2pXl;swammp
 spotify:playlist:0i38GJpdSaVDQ4FpuHMB7g;swammmmp
@@ -21,8 +22,8 @@ spotify:playlist:4MgGEdyMCnZF4VMAyq9eDj;rattle my eardrums
 spotify:playlist:5ekDhKMzYkEvt3jk7Um0jw;night fever
 spotify:playlist:4mTVEZTpcsKdNj7vklBx8Q;My playlist #84
 spotify:playlist:1HhvBgptPdvoSr14YZJCVV;bag lol
-spotify:playlist:1DKWa0kIrE06HeWHoApA4N;That new shit
 spotify:playlist:3mrcaobU6nVTzVzrfImYWF;doodoo doodoodoodoo
+spotify:playlist:1DKWa0kIrE06HeWHoApA4N;That new shit
 spotify:playlist:2TCQykJFponqWb2iPVqp7D;alt/indie/pop/rock
 spotify:playlist:37i9dQZF1DX3oM43CtKnRV;00s Rock Anthems
 spotify:playlist:7BXLUs5QPvJgtgMwLl7RYq;light 2000s rock

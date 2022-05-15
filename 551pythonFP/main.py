@@ -5,10 +5,12 @@ from const import root, frame, onClick
 from settings import getLikedSongs, getPlaylists
 
 #############################################################
-#   Spotify Analyzer / Game Project
-#   AA!-551 Final Project
+#   Spotify Analyzer/Game Project
+#   Chris Youngclaus
+#   AAI-551-W1 Final Project
 #   15 May 2022
 #
+#   Imports: tkinter, spotipy, lyricsgenius
 #   Sidenote: I have learned that tkinter is terrible
 #############################################################
 

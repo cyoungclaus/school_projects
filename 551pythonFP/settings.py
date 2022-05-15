@@ -5,12 +5,13 @@ import lyricsgenius as lg
 
 # Initialization
 # -------------------------
-CLIENT_ID = '9a0a84b0ed4443ed8e8e4014f4d3edbb'
-CLIENT_SECRET = "93bf0299df4442af92dfafc475e2c21a"
-CLIENT_NAME = 'dublecy'
+CLIENT_ID = '130967bf4d974fd39dda64d3a84b970e'
+CLIENT_SECRET = "1e01be88427c498a84a52e0d8e4803ab"
+CLIENT_NAME = 'dublecy1'
 LIKED_SONGS = "551pythonFP\storage\liked_songs.txt"
 PLAYLISTS = "551pythonFP\storage\playlists.txt"
-
+# I switch IDs with my backup Spotify account to protect my real account
+# This does throw an error but the code should work regardless
 # =============
 # client_credentials_manager = SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
 # sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
@@ -57,7 +58,7 @@ def getLikedSongs():
     print("Build complete with " + str(numError) + " errors.")
 
 def getPlaylists():
-    playlists = sp.user_playlists(CLIENT_NAME)
+    playlists = sp.current_user_playlists(CLIENT_NAME)
     f = open(PLAYLISTS, 'w')
 
     print("Updating Playlists...")

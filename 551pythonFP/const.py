@@ -61,8 +61,8 @@ def getLyrics():
     while True:
         f = open(LIKED_SONGS).read().splitlines()
         choice = random.choice(f)
-        title = "Despacito" #str(choice.split(';')[1]).strip()
-        artist = "Luis Fonsi" #str(choice.split(';')[2]).strip()
+        title = str(choice.split(';')[1]).strip()
+        artist = str(choice.split(';')[2]).strip()
         try:
             song = genius.search_song(title=title, artist=artist)
             break
